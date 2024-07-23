@@ -1,0 +1,7 @@
+{
+  "url-backend": "127.0.0.1",
+  "port": 9999,
+
+  "data-db-connection": "mongodb+srv://usuario-pruebas:4LtMMvpwGch2sV5Z@cluster0.suzutlv.mongodb.net/bd-registro-capacidad?retryWrites=true&w=majority&appName=Cluster0",
+  "name-db": "bd-registro-capacidad"
+}
