@@ -1,0 +1,44 @@
+<div class="col-lg-12">
+    <nb-card>
+        <nb-card-header *ngIf="modoCreacion">CREAR CAPACIDAD</nb-card-header>
+        <nb-card-header *ngIf="!modoCreacion">ACTUALIZAR CAPACIDAD</nb-card-header>
+        <nb-card-body>
+            <div class="row">
+                <div class="col-3">
+                    <label>Nombre</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text"[(ngModel)]="laCapacidad.nombre">
+                        <p *ngIf="intentoEnvio && laCapacidad.nombre ==='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Tipo</label>
+                </div>
+                <div class="col-9">
+                    <select class="form-control" [(ngModel)]="laCapacidad.tipo">
+                        <option value="">Seleccione un tipo</option>
+                        <option value="FISICA">FISICA</option>
+                        <option value="INTELECTUAL">INTELECTUAL</option>
+                        <option value="MENTAL">MENTAL</option>
+                        <option value="PSICOSOCIAL">PSICOSOCIAL</option>
+                        <option value="SENSORIAL">SENSORIAL</option>
+                        <option value="AUDITIVA">AUDITIVA</option>
+                        <option value="VISUAL">VISUAL</option>
+                    </select>
+                    <p *ngIf="intentoEnvio && laCapacidad.tipo === ''">Requerido</p>
+                </div>
+            </div>
+            
+            <br>
+            <div class="row">
+                <button *ngIf="modoCreacion" class="btn btn-primary btn-block" (click)="agregar()">Crear</button>
+                <button *ngIf="modoCreacion" class="btn btn-danger btn-block" (click)="cancelar()">Cancelar</button>
+                <button *ngIf="!modoCreacion" class="btn btn-primary btn-block" (click)="editar()">Actualizar</button>
+                <button *ngIf="!modoCreacion" class="btn btn-danger btn-block" (click)="cancelar()">Cancelar</button>
+            </div>
+        </nb-card-body>
+    </nb-card>
+</div>

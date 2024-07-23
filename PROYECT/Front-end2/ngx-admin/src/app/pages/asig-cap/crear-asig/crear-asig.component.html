@@ -1,0 +1,122 @@
+<div class="col-lg-12">
+    <nb-card>
+        <nb-card-header *ngIf="modoCreacion">ASIGNAR CAPACIDAD</nb-card-header>
+        <nb-card-header *ngIf="!modoCreacion">ACTUALIZAR ASIGNACIÓN DE CAPACIDAD</nb-card-header>
+        <nb-card-body>
+            <div class="row">
+                <div class="col-3">
+                    <label>Persona</label>
+                </div>
+                <div class="col-9">
+                    <select
+                        class="form-control"
+                        [(ngModel)]="laAsignacion.persona"
+                        required
+                    >
+                        <option [ngValue]="null">Seleccione una persona</option>
+                        <option *ngFor="let persona of lapersona" [ngValue]="persona">
+                            {{ persona.identificacion + " - " + persona.nombre }}
+                        </option>
+                    </select>
+                    <p *ngIf="intentoEnvio && !laAsignacion.persona">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Capacidad</label>
+                </div>
+                <div class="col-9">
+                    <select
+                        class="form-control"
+                        [(ngModel)]="laAsignacion.capacidad"
+                        required
+                    >
+                        <option [ngValue]="null">Seleccione una capacidad</option>
+                        <option *ngFor="let capacidad of lacapacidad" [ngValue]="capacidad">
+                            {{ capacidad.nombre }}
+                        </option>
+                    </select>
+                    <p *ngIf="intentoEnvio && !laAsignacion.capacidad">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Grado de Capacidad</label>
+                </div>
+                <div class="col-9">
+                    <select class="form-control" [(ngModel)]="laAsignacion.Nivel_Capacidad">
+                        <option [ngValue]="null">Seleccione un Grado de Capacidad</option>
+                        <option value="NULA">NULA</option>
+                        <option value="LEVE">LEVE</option>
+                        <option value="MODERADA">MODERADA</option>
+                        <option value="GRAVE">GRAVE</option>
+                        <option value="MUY GRAVE">MUY GRAVE</option>
+                    </select>
+                    <p *ngIf="intentoEnvio && !laAsignacion.Nivel_Capacidad">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Fecha de Diagnóstico</label>
+                </div>
+                <div class="col-9">
+                    <input 
+                        class="form-control" 
+                        type="date" 
+                        [(ngModel)]="laAsignacion.Fecha_Diagnostico"
+                    >
+                    <p *ngIf="intentoEnvio && !laAsignacion.Fecha_Diagnostico">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Descripción</label>
+                </div>
+                <div class="col-9">
+                    <input 
+                        class="form-control" 
+                        type="text"
+                        [(ngModel)]="laAsignacion.Descripcion"
+                    >
+                    <p *ngIf="intentoEnvio && !laAsignacion.Descripcion">Requerido</p>
+                </div>
+            </div>
+            
+            <br>
+            <div class="row">
+                <button 
+                    *ngIf="modoCreacion" 
+                    class="btn btn-primary btn-block" 
+                    (click)="agregar()"
+                >
+                    Crear
+                </button>
+                <button 
+                    *ngIf="modoCreacion" 
+                    class="btn btn-danger btn-block" 
+                    (click)="cancelar()"
+                >
+                    Cancelar
+                </button>
+                <button 
+                    *ngIf="!modoCreacion" 
+                    class="btn btn-primary btn-block" 
+                    (click)="editar()"
+                >
+                    Actualizar
+                </button>
+                <button 
+                    *ngIf="!modoCreacion" 
+                    class="btn btn-danger btn-block" 
+                    (click)="cancelar()"
+                >
+                    Cancelar
+                </button>
+            </div>
+        </nb-card-body>
+    </nb-card>
+</div>

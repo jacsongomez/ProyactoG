@@ -1,0 +1,72 @@
+$btn-circle-size: 50px;
+$btn-bg-color: #6c757d; /* Secondary color in Bootstrap */
+$btn-bg-hover-color: darken($btn-bg-color, 10%);
+$btn-focus-shadow-color: rgba(108, 117, 125, 0.5);
+
+.btn-circle {
+  width: $btn-circle-size;
+  height: $btn-circle-size;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  background-color: rgb(3, 216, 216);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+  cursor: pointer;
+  
+  i {
+    font-size: 1.5rem; /* Tamaño del icono */
+  }
+
+  &:hover {
+    background-color: aqua; /* Color de fondo al pasar el cursor */
+    transform: translateY(-2px); /* Efecto de elevación al pasar el cursor */
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem $btn-focus-shadow-color; /* Efecto de foco */
+  }
+}
+.col-3 {
+  font-weight: bold;
+}
+.col-12 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.subtitulo {
+  font-weight: bold;
+}
+.card{
+  height: 200px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px); // Efecto de elevación al pasar el cursor
+  }
+  
+  .card-text-custom {
+    margin-top: 5px; /* Ajusta el valor según tus necesidades */
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
+.card-body {
+  flex: 1;
+  font-style: italic; // Aplica letra cursiva a todo el contenido dentro de .card-body
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: 1fr; // Una columna en pantallas pequeñas
+  }
+}

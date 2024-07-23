@@ -1,0 +1,92 @@
+<div class="col-lg-12">
+  <nb-card>
+    <nb-card-header>
+      <button class="btn btn-circle btn-block" (click)="volver()">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+    </nb-card-header>
+    <nb-card-body *ngIf="laAsignacion && persona && capacidad">
+      <div class="row" style="text-align: center;">
+        <div class="col-12">
+          {{ persona.nombre }}
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-3">
+          <label>Identificación:</label>
+        </div>
+        <div class="col-9">
+          {{ persona.identificacion }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <label>Programa:</label>
+        </div>
+        <div class="col-9">
+          {{ persona.programa.nombre }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <label>Tipo Persona:</label>
+        </div>
+        <div class="col-9">
+          {{ persona.tipo }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <label>Capacidad:</label>
+        </div>
+        <div class="col-9">
+          {{ capacidad.nombre }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <label>Grado de Capacidad:</label>
+        </div>
+        <div class="col-9">
+          {{ laAsignacion.Nivel_Capacidad }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <label>Consejos: </label>
+        </div>
+      </div>
+      <div class="row consejo">
+        <div class="container">
+          <li class="subtitulo">Preparación Antes de Clase:</li>
+          <br>
+          <div class="row justify-content-center">
+            <div class="col-md-4 mb-4" *ngFor="let consejo of consejos">
+              <div class="card" *ngIf=" laAsignacion.Nivel_Capacidad === consejo.Nivel_Capacidad && consejo.momento === 'Preparacion antes de clase' ">
+                <div class="card-body">
+                  <p class="card-text card-text-custom">{{ consejo.consejo }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row consejo">
+        <div class="container">
+          <li class="subtitulo">Durante de la clase:</li>
+          <div class="row justify-content-center">
+            <div class="col-md-4 mb-4" *ngFor="let consejo of consejos">
+              <div class="card" *ngIf="laAsignacion.Nivel_Capacidad === consejo.Nivel_Capacidad && consejo.momento === 'Durante de la clase'">
+                <div class="card-body">
+                  <p class="card-text card-text-custom">{{ consejo.consejo }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>

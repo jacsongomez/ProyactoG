@@ -1,0 +1,75 @@
+<div class="col-lg-12">
+    <nb-card>
+        <nb-card-header *ngIf="modoCreacion">CREAR CONSEJO</nb-card-header>
+        <nb-card-header *ngIf="!modoCreacion">ACTUALIZAR CONSEJO</nb-card-header>
+        <nb-card-body>
+            <div class="row">
+                <div class="col-3">
+                    <label>capacidad</label>
+                </div>
+                <div class="col-9">
+                    <select
+                        class="form-control"
+                        [(ngModel)]="elConsejo.capacidad"
+                        required
+                    >
+                        <option value="">Seleccione una capcacidad</option>
+                        <option *ngFor="let capacidad of lacapacidad" [value]="capacidad._id">
+                            {{ capacidad.nombre }}
+                        </option>
+                    </select>
+                    <p *ngIf="intentoEnvio && elConsejo.capacidad ==='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Grado de Capacidad</label>
+                </div>
+                <div class="col-9">
+                    <select class="form-control" [(ngModel)]="elConsejo.Nivel_Capacidad">
+                        <option value="">Seleccione un Grado de Capacidad</option>
+                        <option value="NULA">NULA</option>
+                        <option value="LEVE">LEVE</option>
+                        <option value="MODERADA">MODERADA</option>
+                        <option value="GRAVE">GRAVE</option>
+                        <option value="MUY GRAVE">MUY GRAVE</option>
+                    </select>
+                    <p *ngIf="intentoEnvio && elConsejo.Nivel_Capacidad === ''">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Consejo</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text"[(ngModel)]="elConsejo.consejo">
+                        <p *ngIf="intentoEnvio && elConsejo.consejo ==='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Momento</label>
+                </div>
+                <div class="col-9">
+                    <select class="form-control" [(ngModel)]="elConsejo.momento">
+                        <option value="">Seleccione un momento</option>
+                        <option value="Preparacion antes de clase">Preparacion antes de clase</option>
+                        <option value="Durante de la clase">Durante la clase</option>
+                    </select>
+                    <p *ngIf="intentoEnvio && elConsejo.momento === ''">Requerido</p>
+                </div>
+            </div>
+            
+            <br>
+            <div class="row">
+                <button *ngIf="modoCreacion" class="btn btn-primary btn-block" (click)="agregar()">Crear</button>
+                <button *ngIf="modoCreacion" class="btn btn-danger btn-block" (click)="cancelar()">Cancelar</button>
+                <button *ngIf="!modoCreacion" class="btn btn-primary btn-block" (click)="editar()">Actualizar</button>
+                <button *ngIf="!modoCreacion" class="btn btn-danger btn-block" (click)="cancelar()">Cancelar</button>
+            </div>
+        </nb-card-body>
+    </nb-card>
+</div>

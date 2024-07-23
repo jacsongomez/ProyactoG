@@ -1,0 +1,41 @@
+<div class="col-lg-12">
+  <nb-card>
+    <nb-card-header *ngIf="modoCreacion"> CREAR PERMISO </nb-card-header>
+    <nb-card-header *ngIf="!modoCreacion"> ACTUALIZAR PERMISO </nb-card-header>
+    <nb-card-body>
+      <div class="row">
+        <div class="col-3">
+          <label>Url</label>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text" [(ngModel)]="elPermiso.url">
+            <p *ngIf="intentoEnvio && elPermiso.url === ''">Requerido</p>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-3">
+          <label>Metodo</label>
+        </div>
+        <div class="col-9">
+          <select class="form-control" [(ngModel)]="elPermiso.metodo">
+            <option value="">Seleccione un Metodo</option>
+            <option value="POST">POST</option>
+            <option value="GET">GET</option>
+            <option value="PUT">PUT</option>
+            <option value="DELETE">DELETE</option>
+          </select>
+          <p *ngIf="intentoEnvio && elPermiso.metodo === ''">Requerido</p>
+        </div>
+      </div>
+
+      <br />
+      <div class="row">
+        <button *ngIf="modoCreacion" class="btn btn-primary btn-block" (click)="agregar()">Crear</button>
+        <button *ngIf="modoCreacion" class="btn btn-danger btn-block" (click)="cancelar()">Cancelar</button>
+        <button *ngIf="!modoCreacion" class="btn btn-primary btn-block" (click)="editar()">Actualizar</button>
+        <button *ngIf="!modoCreacion" class="btn btn-danger btn-block" (click)="cancelar()">Cancelar</button>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>

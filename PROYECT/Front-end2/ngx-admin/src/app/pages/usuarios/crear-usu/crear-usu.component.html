@@ -1,0 +1,56 @@
+<div class="col-lg-12">
+    <nb-card>
+        <nb-card-header *ngIf="modoCreacion">CREAR USUARIO</nb-card-header>
+        <nb-card-header *ngIf="!modoCreacion">ACTUALIZAR USUARIO</nb-card-header>
+        <nb-card-body>
+            <div class="row">
+                <div class="col-3">
+                    <label>Seudonimo</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text"[(ngModel)]="elUsuario.seudonimo">
+                        <p *ngIf="intentoEnvio && elUsuario.seudonimo ==='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Correo</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text"[(ngModel)]="elUsuario.correo">
+                        <p *ngIf="intentoEnvio && elUsuario.correo ==='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Contraseña</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text"[(ngModel)]="elUsuario.contrasena">
+                        <p *ngIf="intentoEnvio && elUsuario.contrasena ==='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div *ngIf="!modoCreacion" class="row" >
+                <div class="col-3">
+                    <label>Rol</label>
+                </div>
+                <div class="col-9">
+                    <select class="form-control" [(ngModel)]="elUsuario.rol_id" required>
+                        <option value="">Seleccione un Rol</option>
+                        <option *ngFor="let rol of elrol" [value]="rol._id">{{ rol.nombre }}</option>
+                    </select>
+                </div>
+            </div>            
+            <br>
+            <div class="row">
+                <button *ngIf="modoCreacion" class="btn btn-primary btn-block" (click)="agregar()">Crear</button>
+                <button *ngIf="modoCreacion" class="btn btn-danger btn-block" (click)="cancelar()">Cancelar</button>
+                <button *ngIf="!modoCreacion" class="btn btn-primary btn-block" (click)="editar()">Actualizar</button>
+                <button *ngIf="!modoCreacion" class="btn btn-danger btn-block" (click)="cancelar()">Cancelar</button>
+            </div>
+        </nb-card-body>
+    </nb-card>
+</div>

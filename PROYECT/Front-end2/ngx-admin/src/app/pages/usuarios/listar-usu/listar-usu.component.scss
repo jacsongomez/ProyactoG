@@ -1,0 +1,12 @@
+.table-cell {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px; // Ajusta este valor según tus necesidades
+}
+
+.custom-container {
+    border: 3px solid black; /* Borde negro de 1px */
+    padding: 15px; /* Padding interno de 15px */
+    font-size: 1.125rem; /* Tamaño de la letra de 16px */
+  }
