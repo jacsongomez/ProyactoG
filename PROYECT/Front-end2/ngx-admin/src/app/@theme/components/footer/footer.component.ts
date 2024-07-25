@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
     </span>
 -->
     <div class="socials">
-      <a href="#" target="_blank" class="ion ion-social-github"></a>
+      <a href="https://github.com/jacsongomez?tab=repositories" target="_blank" class="ion ion-social-github"></a>
       <a href="#" target="_blank" class="ion ion-social-facebook"></a>
       <a href="#" target="_blank" class="ion ion-social-twitter"></a>
       <a href="#" target="_blank" class="ion ion-social-linkedin"></a>

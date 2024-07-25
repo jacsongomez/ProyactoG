@@ -3,6 +3,10 @@ export class Usuarios {
     seudonimo?:string;
     correo?:string;
     contrasena?:string;
-    rol_id?:string;
+    rol?: {
+        _id?:string;
+        nombre?:string;
+        descripcion?:string;
+    };
     token?:string;
 }

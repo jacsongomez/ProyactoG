@@ -4,5 +4,10 @@ export class Persona {
     nombre?:string;
     grupo?:string;
     tipo?:string;
-    programa?:string;
+    programa?: {
+        _id?:string;
+        codigo?:string;
+        nombre?:string;
+        facultad?:string;
+    };
 }

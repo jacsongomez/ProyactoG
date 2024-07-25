@@ -1,30 +1,30 @@
 <div class="col-lg-12">
     <nb-card>
-        <nb-card-header *ngIf="modoCreacion">CREAR CONSEJO</nb-card-header>
-        <nb-card-header *ngIf="!modoCreacion">ACTUALIZAR CONSEJO</nb-card-header>
+        <nb-card-header *ngIf="modoCreacion" style="font-weight: bold; font-size: 18px;">CREAR CONSEJO</nb-card-header>
+        <nb-card-header *ngIf="!modoCreacion" style="font-weight: bold; font-size: 18px;">ACTUALIZAR CONSEJO</nb-card-header>
         <nb-card-body>
             <div class="row">
                 <div class="col-3">
-                    <label>capacidad</label>
+                    <label>Capacidad Diversa:</label>
                 </div>
                 <div class="col-9">
                     <select
                         class="form-control"
-                        [(ngModel)]="elConsejo.capacidad"
+                        [(ngModel)]="elConsejo.capacidad._id"
                         required
                     >
-                        <option value="">Seleccione una capcacidad</option>
+                        <option value="">Seleccione una capcacidad Diversa</option>
                         <option *ngFor="let capacidad of lacapacidad" [value]="capacidad._id">
                             {{ capacidad.nombre }}
                         </option>
                     </select>
-                    <p *ngIf="intentoEnvio && elConsejo.capacidad ==='' ">Requerido</p>
+                    <p *ngIf="intentoEnvio && elConsejo.capacidad._id ==='' ">Requerido</p>
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-3">
-                    <label>Grado de Capacidad</label>
+                    <label>Grado de Capacidad:</label>
                 </div>
                 <div class="col-9">
                     <select class="form-control" [(ngModel)]="elConsejo.Nivel_Capacidad">
@@ -41,7 +41,7 @@
             <br>
             <div class="row">
                 <div class="col-3">
-                    <label>Consejo</label>
+                    <label>Consejo:</label>
                 </div>
                 <div class="col-9">
                     <input class="form-control" type="text"[(ngModel)]="elConsejo.consejo">
@@ -51,7 +51,7 @@
             <br>
             <div class="row">
                 <div class="col-3">
-                    <label>Momento</label>
+                    <label>Momento de Aplicación:</label>
                 </div>
                 <div class="col-9">
                     <select class="form-control" [(ngModel)]="elConsejo.momento">

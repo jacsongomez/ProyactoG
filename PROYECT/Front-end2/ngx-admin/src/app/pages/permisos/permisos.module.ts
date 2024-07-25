@@ -6,6 +6,7 @@ import { CrearPermisoComponent } from './crear-permiso/crear-permiso.component';
 import { ListarPermisoComponent } from './listar-permiso/listar-permiso.component';
 import { NbCardModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     PermisosRoutingModule,
     NbCardModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class PermisosModule { }

@@ -2,7 +2,7 @@
   <div class="custom-container">
     <nb-card>
       <nb-card-header class="d-flex justify-content-between align-items-center">
-        <span>ADMINISTRACIÓN DE ASIGNACIÓN CAPACIDAD</span>
+        <span style="font-weight: bold; font-size: 25px;">ASIGNACIÓN DE CAPACIDADES DIVERSAS</span>
         <div class="d-flex flex-wrap justify-content-end">
           <input 
             type="text" 
@@ -25,19 +25,19 @@
         <table class="table table-sm">
           <thead class="small">
             <tr>
-              <th *ngFor="let columaActual of nombresColumnas"><p>{{ columaActual }}</p></th>
+              <th *ngFor="let columaActual of nombresColumnas" style="font-weight: bold; font-size: 15px;">{{ columaActual }}</th>
             </tr>
           </thead>
           <tbody class="small">
             <ng-container *ngIf="filteredAsignaciones.length; else noData">
-              <ng-container *ngFor="let asignacionActual of filteredAsignaciones | paginate: { itemsPerPage: 9, currentPage: p }">
+              <ng-container *ngFor="let asignacionActual of filteredAsignaciones | paginate: { itemsPerPage: 8, currentPage: p }">
                 <tr>
-                  <td><p class="table-cell">{{ asignacionActual.persona?.identificacion + ' - ' + asignacionActual.persona?.nombre }}</p></td>
-                  <td><p class="table-cell">{{ asignacionActual.persona?.grupo }}</p></td>
-                  <td><p class="table-cell">{{ asignacionActual.capacidad?.nombre }}</p></td>
-                  <td><p class="table-cell">{{ asignacionActual.Nivel_Capacidad }}</p></td>
-                  <td><p class="table-cell">{{ asignacionActual.Fecha_Diagnostico }}</p></td>
-                  <td><p class="table-cell">{{ asignacionActual.Descripcion }}</p></td>
+                  <td class="table-cell">{{ asignacionActual.persona.identificacion + ' - ' + asignacionActual.persona.nombre }}</td>
+                  <td class="table-cell">{{ asignacionActual.persona.grupo }}</td>
+                  <td class="table-cell">{{ asignacionActual.capacidad.nombre }}</td>
+                  <td class="table-cell">{{ asignacionActual.Nivel_Capacidad }}</td>
+                  <td class="table-cell">{{ asignacionActual.Fecha_Diagnostico }}</td>
+                  <td class="table-cell">{{ asignacionActual.Descripcion }}</td>
                   <td>
                     <div class="d-flex">
                       <button type="button" class="btn btn-secondary btn-sm mr-2" (click)="detallePer(asignacionActual._id)">

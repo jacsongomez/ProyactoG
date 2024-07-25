@@ -18,7 +18,12 @@ export class CrearPerComponent implements OnInit {
   laPersona: Persona = {
     identificacion: "",
     nombre: "",
-    programa: "",
+    programa: {
+      _id:"",
+      codigo:"",
+      nombre:"",
+      facultad:"",
+    },
     grupo:"",
     tipo: ""
   }
@@ -34,7 +39,6 @@ export class CrearPerComponent implements OnInit {
       this.modoCreacion = false;
       this.id_persona = this.rutaActiva.snapshot.params.id_persona;
       this.getPersona(this.id_persona)
-      console.log(this.getPersona(this.id_persona))
     } else {
       this.modoCreacion = true;
     }
@@ -71,7 +75,7 @@ export class CrearPerComponent implements OnInit {
     this.intentoEnvio = true;
     if (this.validarDatosCompletos()) {
       this.miServicioPersonas.editar(this.laPersona._id,this.laPersona).subscribe(data => {
-        this.miServicioPersonas.asigProgram(this.laPersona._id,this.laPersona.programa,this.laPersona).subscribe(data => {});
+        this.miServicioPersonas.asigProgram(this.laPersona._id,this.laPersona.programa._id,this.laPersona).subscribe(data => {});
         Swal.fire(
           'Actualizada',
           'La persona ha sido actualizada correctamente',

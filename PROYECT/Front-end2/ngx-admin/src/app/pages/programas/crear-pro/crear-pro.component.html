@@ -1,11 +1,11 @@
 <div class="col-lg-12">
     <nb-card>
-        <nb-card-header *ngIf="modoCreacion">CREAR PROGRAMA</nb-card-header>
-        <nb-card-header *ngIf="!modoCreacion">ACTUALIZAR PROGRAMA</nb-card-header>
+        <nb-card-header *ngIf="modoCreacion" style="font-weight: bold; font-size: 18px;">CREAR PROGRAMA</nb-card-header>
+        <nb-card-header *ngIf="!modoCreacion" style="font-weight: bold; font-size: 18px;">ACTUALIZAR PROGRAMA</nb-card-header>
         <nb-card-body>
             <div class="row">
                 <div class="col-3">
-                    <label>Codigo</label>
+                    <label>Codigo:</label>
                 </div>
                 <div class="col-9">
                     <input class="form-control" type="text"[(ngModel)]="elPrograma.codigo">
@@ -15,7 +15,7 @@
             <br>
             <div class="row">
                 <div class="col-3">
-                    <label>Nombre</label>
+                    <label>Nombre del Programa:</label>
                 </div>
                 <div class="col-9">
                     <input class="form-control" type="text"[(ngModel)]="elPrograma.nombre">
@@ -25,7 +25,7 @@
             <br>
             <div class="row">
                 <div class="col-3">
-                    <label>Facultad</label>
+                    <label>Facultad:</label>
                 </div>
                 <div class="col-9">
                     <input class="form-control" type="text"[(ngModel)]="elPrograma.facultad">

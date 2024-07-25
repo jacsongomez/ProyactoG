@@ -21,8 +21,19 @@ export class CrearAsigComponent implements OnInit {
     Nivel_Capacidad: "",
     Fecha_Diagnostico: "",
     Descripcion: "",
-    capacidad: null, // Asegúrate de inicializar como null
-    persona: null   // Asegúrate de inicializar como null
+    capacidad: {
+      _id:"",
+      nombre:"",
+      tipo:"",
+    },
+    persona: {
+      _id:"",
+      grupo:"",
+      identificacion:"",
+      nombre:"",
+      programa: "",
+      tipo:"",
+    },
   }
   lapersona: Persona[] = [];
   lacapacidad: Capacidad[] = [];
@@ -68,7 +79,7 @@ export class CrearAsigComponent implements OnInit {
   agregar(): void {
     if (this.validarDatosCompletos()) {
       this.intentoEnvio = true;
-      this.miServicioAsignaciones.crear(this.laAsignacion.capacidad?._id, this.laAsignacion.persona?._id, this.laAsignacion).subscribe(data => {
+      this.miServicioAsignaciones.crear(this.laAsignacion.capacidad._id, this.laAsignacion.persona._id,this.laAsignacion).subscribe(data => {
         Swal.fire(
           'Creada',
           'La asignación ha sido creada correctamente',
@@ -82,7 +93,7 @@ export class CrearAsigComponent implements OnInit {
   editar(): void {
     this.intentoEnvio = true;
     if (this.validarDatosCompletos()) {
-      this.miServicioAsignaciones.editar(this.laAsignacion._id, this.laAsignacion.capacidad?._id, this.laAsignacion.persona?._id, this.laAsignacion).subscribe(data => {
+      this.miServicioAsignaciones.editar(this.laAsignacion._id, this.laAsignacion.capacidad._id, this.laAsignacion.persona._id, this.laAsignacion).subscribe(data => {
         Swal.fire(
           'Actualizada',
           'La asignación ha sido actualizada correctamente',
@@ -95,8 +106,15 @@ export class CrearAsigComponent implements OnInit {
 
   validarDatosCompletos(): boolean {
     this.intentoEnvio = true;
-    return !!(this.laAsignacion.persona && this.laAsignacion.capacidad && this.laAsignacion.Nivel_Capacidad && 
-             this.laAsignacion.Fecha_Diagnostico && this.laAsignacion.Descripcion);
+    if(this.laAsignacion.persona._id == "" ||
+      this.laAsignacion.capacidad._id == "" ||
+      this.laAsignacion.Nivel_Capacidad == "" ||
+      this.laAsignacion.Fecha_Diagnostico == "" ||
+      this.laAsignacion.Descripcion == ""){
+        return false;
+    }else{
+      return true;
+    }
   }
 
   cancelar() {

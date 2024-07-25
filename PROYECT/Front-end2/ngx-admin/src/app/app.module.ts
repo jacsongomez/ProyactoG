@@ -22,10 +22,13 @@ import {
 } from '@nebular/theme';
 import { TokenInterceptor } from './interceptores/token.interceptor';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { LoginComponent } from './login/login.component';
+import { NbCardModule } from '@nebular/theme';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -43,6 +46,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     NgxPaginationModule,
+    NbCardModule,
+    FormsModule
   ],
   bootstrap: [AppComponent],
   providers: [{

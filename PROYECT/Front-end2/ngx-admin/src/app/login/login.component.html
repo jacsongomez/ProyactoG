@@ -1,0 +1,47 @@
+<div class="container col-12">
+  <div class="logo">
+    <img src="../../assets/images/logo.png" alt="Logo">
+  </div>
+  
+  <div class="login col-12">
+    <nb-card>
+      <nb-card-body>
+        <div class="row">
+          <div class="col-lg-3">
+            <label>Correo:</label>
+          </div>
+          <div class="col-lg-9">
+            <input
+              type="text"
+              [(ngModel)]="correo"
+              class="form-control"
+              placeholder="Ingrese correo"
+            />
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-lg-3">
+            <label>Contraseña:</label>
+          </div>
+          <div class="col-lg-9">
+            <input
+              type="password"
+              [(ngModel)]="contrasena"
+              class="form-control"
+              placeholder="Ingrese contraseña"
+            />
+          </div>
+        </div>
+        <br />
+        <button
+          type="submit"
+          class="btn btn-primary btn-block"
+          (click)="login()"
+        >
+          Login
+        </button>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

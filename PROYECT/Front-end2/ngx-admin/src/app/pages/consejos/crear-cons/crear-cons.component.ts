@@ -18,7 +18,11 @@ export class CrearConsComponent implements OnInit {
   elConsejo: Consejo = {
     consejo: "",
     momento: "",
-    capacidad: "",
+    capacidad: {
+      _id: "",
+      nombre: "",
+      tipo: "",
+    },
     Nivel_Capacidad: "",
   }
   lacapacidad: Capacidad[]=[];
@@ -54,7 +58,7 @@ export class CrearConsComponent implements OnInit {
   agregar(): void {
     if (this.validarDatosCompletos()) {
       this.intentoEnvio = true;
-      this.miServicioConsejoS.crear(this.elConsejo.capacidad,this.elConsejo).subscribe(data => {
+      this.miServicioConsejoS.crear(this.elConsejo.capacidad._id,this.elConsejo).subscribe(data => {
         Swal.fire(
           'Creado',
           'El Consejo ha sido creado correctamente',
@@ -68,7 +72,7 @@ export class CrearConsComponent implements OnInit {
   editar(): void {
     this.intentoEnvio = true;
     if (this.validarDatosCompletos()) {
-      this.miServicioConsejoS.editar(this.elConsejo._id,this.elConsejo.capacidad,this.elConsejo).subscribe(data => {
+      this.miServicioConsejoS.editar(this.elConsejo._id,this.elConsejo.capacidad._id,this.elConsejo).subscribe(data => {
         Swal.fire(
           'Actualizado',
           'El consejo ha sido actualizado correctamente',
@@ -83,7 +87,7 @@ export class CrearConsComponent implements OnInit {
     this.intentoEnvio=true;
     if(this.elConsejo.consejo=="" ||
       this.elConsejo.momento=="" ||
-      this.elConsejo.capacidad=="" ||
+      this.elConsejo.capacidad._id=="" ||
       this.elConsejo.Nivel_Capacidad==""){
         return false;
     }else{

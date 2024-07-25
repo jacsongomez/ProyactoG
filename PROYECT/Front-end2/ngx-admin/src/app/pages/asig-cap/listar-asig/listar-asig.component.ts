@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ListarAsigComponent implements OnInit {
   asignaciones: AsigCap[] = [];
-  nombresColumnas: string[] = ['Persona', 'Grupo', 'Capacidad', 'Grado de Capacidad', 'Fecha de Diagnostico', 'Descripción', 'Opciones'];
+  nombresColumnas: string[] = ['Persona', 'Grupo', 'Capacidad Diversa', 'Grado de la Capacidad', 'Fecha de Diagnostico', 'Descripción', 'Opciones'];
   filteredAsignaciones: AsigCap[] = [];
   p: number = 1; // Página actual para paginación
   loading: boolean = false; // Estado de carga
@@ -31,9 +31,9 @@ export class ListarAsigComponent implements OnInit {
         this.loading = false;
       },
       error => {
-        console.error('Error al cargar las asignaciones', error);
+        console.error('Error al cargar las Asignaciones', error);
         this.loading = false;
-        Swal.fire('Error', 'No se pudieron cargar las asignaciones', 'error');
+        Swal.fire('Error', 'No se pudieron cargar las Asignaciones', 'error');
       }
     );
   }
@@ -92,5 +92,4 @@ export class ListarAsigComponent implements OnInit {
       this.filteredAsignaciones = this.asignaciones;
     }
   }  
-  
 }

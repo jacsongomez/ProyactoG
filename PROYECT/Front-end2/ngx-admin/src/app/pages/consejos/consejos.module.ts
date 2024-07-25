@@ -6,6 +6,7 @@ import { CrearConsComponent } from './crear-cons/crear-cons.component';
 import { ListarConsComponent } from './listar-cons/listar-cons.component';
 import { NbCardModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     ConsejosRoutingModule,
     NbCardModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class ConsejosModule { }

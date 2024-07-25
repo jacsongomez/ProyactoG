@@ -6,6 +6,7 @@ import { CrearUsuComponent } from './crear-usu/crear-usu.component';
 import { ListarUsuComponent } from './listar-usu/listar-usu.component';
 import { NbCardModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     UsuariosRoutingModule,
     NbCardModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class UsuariosModule { }

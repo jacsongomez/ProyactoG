@@ -11,17 +11,30 @@ import { Router } from '@angular/router';
 })
 export class ListarUsuComponent implements OnInit{
   usuario : Usuarios[];
-  nombresColumnas: string[] = ['Seudonimo','Correo','Contraseña','Rol','Opciones'];
+  nombresColumnas: string[] = ['Nombre del Usuario','Correo','Contraseña','Rol','Opciones'];
+  filteredUsuarios: Usuarios[] = [];
+  p: number = 1; // Página actual para paginación
+  loading: boolean = false; // Estado de carga
+
   constructor (private miServicioUsuario: UsuariosService, private router:Router){}
   
   ngOnInit(): void {
     this.listar();    
   }
   listar():void{
-    this.miServicioUsuario.listar().
-      subscribe(data => {
+    this.loading = true;
+    this.miServicioUsuario.listar().subscribe(
+      data => {
         this.usuario=data;
-    });
+        this.filteredUsuarios = data;
+        this.loading = false;
+      },
+      error => {
+        console.error('Error al cargar los Usuarios', error);
+        this.loading = false;
+        Swal.fire('Error', 'No se pudieron cargar los Usuarios', 'error');
+      }
+    );
   }
   agregar():void{
     console.log("agregando nuevo")
@@ -42,15 +55,35 @@ export class ListarUsuComponent implements OnInit{
       confirmButtonText: 'Si, eliminar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.miServicioUsuario.eliminar(id).subscribe(data => {
-          Swal.fire(
-            'Eliminado!',
-            'El usuario ha sido eliminado correctamente',
-            'success'
-          )
-          this.ngOnInit();
-        });
+        this.miServicioUsuario.eliminar(id).subscribe(
+          data => {
+            Swal.fire(
+              'Eliminado!',
+              'El usuario ha sido eliminado correctamente',
+              'success'
+            )
+            this.listar();
+          },
+          error => {
+            console.error('Error al eliminar el Usuario', error);
+            Swal.fire('Error', 'No se pudo eliminar el Usuario', 'error');
+          }
+        );
       }
     })
   }
+
+  buscar(term: string): void {
+    if (term) {
+      this.filteredUsuarios = this.usuario.filter(usuario => {
+        // Verifica si la `persona` está definida antes de acceder a `identificacion`
+        const seudonimo = usuario.seudonimo || '';
+        // Filtra basándose únicamente en `grupo`
+        return seudonimo.includes(term);
+      });
+    } else {
+      // Si no hay término de búsqueda, muestra todas las asignaciones
+      this.filteredUsuarios = this.usuario;
+    }
+  }  
 }

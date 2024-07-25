@@ -6,6 +6,7 @@ import { ListarPerComponent } from './listar-per/listar-per.component';
 import { CrearPerComponent } from './crear-per/crear-per.component';
 import { NbCardModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     PersonasRoutingModule,
     NbCardModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class PersonasModule { }

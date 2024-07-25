@@ -6,6 +6,7 @@ import { CrearProComponent } from './crear-pro/crear-pro.component';
 import { ListarProComponent } from './listar-pro/listar-pro.component';
 import { NbCardModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     ProgramasRoutingModule,
     NbCardModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class ProgramasModule { }

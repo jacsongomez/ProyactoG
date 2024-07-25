@@ -1,11 +1,11 @@
 <div class="col-lg-12">
     <nb-card>
-        <nb-card-header *ngIf="modoCreacion">CREAR PERSONA</nb-card-header>
-        <nb-card-header *ngIf="!modoCreacion">ACTUALIZAR PERSONA</nb-card-header>
+        <nb-card-header *ngIf="modoCreacion" style="font-weight: bold; font-size: 18px;">CREAR PERSONA</nb-card-header>
+        <nb-card-header *ngIf="!modoCreacion" style="font-weight: bold; font-size: 18px;">ACTUALIZAR PERSONA</nb-card-header>
         <nb-card-body>
             <div class="row">
                 <div class="col-3">
-                    <label>identificacion</label>
+                    <label>Identificacion:</label>
                 </div>
                 <div class="col-9">
                     <input class="form-control" type="text"[(ngModel)]="laPersona.identificacion">
@@ -15,7 +15,7 @@
             <br>
             <div class="row">
                 <div class="col-3">
-                    <label>nombre</label>
+                    <label>Nombre Completo de la Persona:</label>
                 </div>
                 <div class="col-9">
                     <input class="form-control" type="text"[(ngModel)]="laPersona.nombre">
@@ -25,7 +25,7 @@
             <br>
             <div class="row">
                 <div class="col-3">
-                    <label>grupo</label>
+                    <label>Grupo:</label>
                 </div>
                 <div class="col-9">
                     <input class="form-control" type="text"[(ngModel)]="laPersona.grupo">
@@ -34,23 +34,24 @@
             <br>
             <div *ngIf="!modoCreacion" class="row" >
                 <div class="col-3">
-                    <label>programa</label>
+                    <label>Programa:</label>
                 </div>
                 <div class="col-9">
-                    <select class="form-control" [(ngModel)]="laPersona.programa" required>
+                    <select class="form-control" [(ngModel)]="laPersona.programa._id" required>
                         <option value="">Seleccione un Programa</option>
                         <option *ngFor="let programa of elprograma" [value]="programa._id">{{ programa.nombre }}</option>
                     </select>
+                    <p *ngIf="intentoEnvio && laPersona.programa === ''">Requerido</p>
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-3">
-                    <label>Tipo</label>
+                    <label>Tipo de Persona:</label>
                 </div>
                 <div class="col-9">
                     <select class="form-control" [(ngModel)]="laPersona.tipo">
-                        <option value="">Seleccione un tipo</option>
+                        <option value="">Seleccione un Tipo de Persona</option>
                         <option value="DOCENTE">DOCENTE</option>
                         <option value="ESTUDIANTE">ESTUDIANTE</option>
                     </select>

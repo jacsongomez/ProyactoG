@@ -6,6 +6,7 @@ import { CrearRolComponent } from './crear-rol/crear-rol.component';
 import { ListarRolComponent } from './listar-rol/listar-rol.component';
 import { NbCardModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     RolesRoutingModule,
     NbCardModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class RolesModule { }

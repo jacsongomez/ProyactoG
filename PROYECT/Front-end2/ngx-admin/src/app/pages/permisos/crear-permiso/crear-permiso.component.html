@@ -1,11 +1,11 @@
 <div class="col-lg-12">
   <nb-card>
-    <nb-card-header *ngIf="modoCreacion"> CREAR PERMISO </nb-card-header>
-    <nb-card-header *ngIf="!modoCreacion"> ACTUALIZAR PERMISO </nb-card-header>
+    <nb-card-header *ngIf="modoCreacion" style="font-weight: bold; font-size: 18px;"> CREAR PERMISO </nb-card-header>
+    <nb-card-header *ngIf="!modoCreacion" style="font-weight: bold; font-size: 18px;"> ACTUALIZAR PERMISO </nb-card-header>
     <nb-card-body>
       <div class="row">
         <div class="col-3">
-          <label>Url</label>
+          <label>Url:</label>
         </div>
         <div class="col-9">
           <input class="form-control" type="text" [(ngModel)]="elPermiso.url">
@@ -15,7 +15,7 @@
       <br />
       <div class="row">
         <div class="col-3">
-          <label>Metodo</label>
+          <label>Metodo:</label>
         </div>
         <div class="col-9">
           <select class="form-control" [(ngModel)]="elPermiso.metodo">

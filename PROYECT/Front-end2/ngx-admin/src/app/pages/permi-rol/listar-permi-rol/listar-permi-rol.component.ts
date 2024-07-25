@@ -12,16 +12,28 @@ import { Router } from '@angular/router';
 export class ListarPermiRolComponent implements OnInit{
   permisoRol : PermisoRol[];
   nombresColumnas: string[] = ['Rol','Permiso','Opciones'];
+  filteredPermisoRol: PermisoRol[] = [];
+  p: number = 1; // Página actual para paginación
+  loading: boolean = false; // Estado de carga
   constructor (private miServicioPermiRol: PermiRolService, private router:Router){}
   
   ngOnInit(): void {
     this.listar();    
   }
   listar():void{
-    this.miServicioPermiRol.listar().
-      subscribe(data => {
+    this.loading = true;
+    this.miServicioPermiRol.listar().subscribe(
+      data => {
         this.permisoRol=data;
-    });
+        this.filteredPermisoRol = data;
+        this.loading = false;
+      },
+      error => {
+        console.error('Error al cargar los Permisos Roles', error);
+        this.loading = false;
+        Swal.fire('Error', 'No se pudieron cargar los Permisos Roles', 'error');
+      }
+    );
   }
   agregar():void{
     console.log("agregando nuevo")
@@ -42,15 +54,36 @@ export class ListarPermiRolComponent implements OnInit{
       confirmButtonText: 'Si, eliminar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.miServicioPermiRol.eliminar(id).subscribe(data => {
-          Swal.fire(
-            'Eliminado!',
-            'El permiso-rol ha sido eliminada correctamente',
-            'success'
-          )
-          this.ngOnInit();
-        });
+        this.miServicioPermiRol.eliminar(id).subscribe(
+          data => {
+            Swal.fire(
+              'Eliminado!',
+              'El permiso-rol ha sido eliminada correctamente',
+              'success'
+            )
+            this.listar();
+          }
+          ,
+          error => {
+            console.error('Error al eliminar la asignación', error);
+            Swal.fire('Error', 'No se pudo eliminar la asignación', 'error');
+          }
+        );
       }
     })
+  }
+
+  buscar(term: string): void {
+    if (term) {
+      this.filteredPermisoRol = this.permisoRol.filter(permisoRol => {
+        // Verifica si la `persona` está definida antes de acceder a `identificacion`
+        const nombre = permisoRol.rol.nombre || '';
+        // Filtra basándose únicamente en `grupo`
+        return nombre.includes(term);
+      });
+    } else {
+      // Si no hay término de búsqueda, muestra todas las asignaciones
+      this.filteredPermisoRol = this.permisoRol;
+    }
   }
 }

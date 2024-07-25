@@ -1,5 +1,13 @@
 export class PermisoRol {
     _id?:string;
-    rol_id?:string;
-    permiso?:string;
+    rol?: {
+        _id?:string;
+        nombre?:string;
+        descripcion?:string;
+    };
+    permiso?: {
+        _id?:string;
+        url?:string;
+        metodo?:string;
+    };
 }

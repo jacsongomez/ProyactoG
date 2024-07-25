@@ -121,7 +121,7 @@ const routes: Routes = [{
     },
     {
       path: '',
-      redirectTo: 'seguridad/login',
+      redirectTo: '/pages/dashboard',
       pathMatch: 'full',
     },
     {

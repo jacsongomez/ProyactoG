@@ -1,0 +1,29 @@
+/* Aseguramos que el contenedor principal ocupe toda la pantalla y alinee los elementos en fila */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px; /* Espacio entre el logo y el formulario */
+}
+
+/* Ajustamos el logo */
+.logo {
+  img {
+    width: 500px; /* Ajusta el ancho según tus necesidades */
+    height: auto; /* Mantiene la proporción de la imagen */
+  }
+}
+
+/* Aseguramos que el formulario se centre y ocupe el ancho completo */
+.login {
+  background-color: aquamarine;
+  align-content: flex-end;
+  width: 100%; /* Ocupa el 100% del ancho disponible */
+  max-width: 400px; /* Ancho máximo del formulario */
+  padding: 20px; /* Espaciado interno para el formulario */
+
+  nb-card {
+    width: 100%; /* Asegura que la tarjeta ocupe el 100% del contenedor */
+  }
+}

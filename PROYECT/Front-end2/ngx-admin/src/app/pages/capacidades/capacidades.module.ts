@@ -6,6 +6,7 @@ import { CrearCapComponent } from './crear-cap/crear-cap.component';
 import { ListarCapComponent } from './listar-cap/listar-cap.component';
 import { NbCardModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     CapacidadesRoutingModule,
     NbCardModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class CapacidadesModule { }

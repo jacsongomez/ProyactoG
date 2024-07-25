@@ -8,8 +8,10 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
+
   {
     path: 'pages',
     loadChildren: () => import('./pages/pages.module')
@@ -26,6 +28,10 @@ export const routes: Routes = [
       {
         path: 'login',
         component: NbLoginComponent,
+      },
+      {
+        path: 'loginc',
+        component: LoginComponent, // Usa tu componente de login personalizado
       },
       {
         path: 'register',
@@ -45,8 +51,8 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages' },
+  { path: '', redirectTo: 'auth/loginc', pathMatch: 'full' },
+  { path: '**', redirectTo: 'auth/loginc' },
 ];
 
 const config: ExtraOptions = {

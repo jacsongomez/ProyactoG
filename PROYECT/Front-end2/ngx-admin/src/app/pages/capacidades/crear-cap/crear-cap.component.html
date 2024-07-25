@@ -1,11 +1,11 @@
 <div class="col-lg-12">
     <nb-card>
-        <nb-card-header *ngIf="modoCreacion">CREAR CAPACIDAD</nb-card-header>
-        <nb-card-header *ngIf="!modoCreacion">ACTUALIZAR CAPACIDAD</nb-card-header>
+        <nb-card-header *ngIf="modoCreacion" style="font-weight: bold; font-size: 18px;">CREAR CAPACIDADES DIVERSAS</nb-card-header>
+        <nb-card-header *ngIf="!modoCreacion" style="font-weight: bold; font-size: 18px;">ACTUALIZAR CAPACIDAD DIVERSAS</nb-card-header>
         <nb-card-body>
             <div class="row">
                 <div class="col-3">
-                    <label>Nombre</label>
+                    <label>Nombre de la Capacidad Diversa:</label>
                 </div>
                 <div class="col-9">
                     <input class="form-control" type="text"[(ngModel)]="laCapacidad.nombre">
@@ -15,11 +15,11 @@
             <br>
             <div class="row">
                 <div class="col-3">
-                    <label>Tipo</label>
+                    <label>Tipo de la Capacidad:</label>
                 </div>
                 <div class="col-9">
                     <select class="form-control" [(ngModel)]="laCapacidad.tipo">
-                        <option value="">Seleccione un tipo</option>
+                        <option value="">Seleccione un Tipo de Capacidad</option>
                         <option value="FISICA">FISICA</option>
                         <option value="INTELECTUAL">INTELECTUAL</option>
                         <option value="MENTAL">MENTAL</option>

@@ -19,7 +19,11 @@ export class CrearUsuComponent implements OnInit {
     seudonimo: "",
     correo: "",
     contrasena: "",
-    rol_id: "",
+    rol: {
+      _id:"",
+      descripcion:"",
+      nombre:"",
+    },
   }
   elrol: Roles[]=[];
 
@@ -71,7 +75,7 @@ export class CrearUsuComponent implements OnInit {
     if (this.validarDatosCompletos()) {
       
       this.miServicioUsuarios.editar(this.elUsuario._id,this.elUsuario).subscribe(data => {
-        this.miServicioUsuarios.asigRol(this.elUsuario._id,this.elUsuario.rol_id,this.elUsuario).subscribe(data => {});
+        this.miServicioUsuarios.asigRol(this.elUsuario._id,this.elUsuario.rol._id,this.elUsuario).subscribe(data => {});
         Swal.fire(
           'Actualizado',
           'El usuario ha sido actualizado correctamente',

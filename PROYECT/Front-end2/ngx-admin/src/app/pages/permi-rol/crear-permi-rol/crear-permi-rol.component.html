@@ -1,16 +1,16 @@
 <div class="col-lg-12">
   <nb-card>
-    <nb-card-header *ngIf="modoCreacion">CREAR PERMISO - ROL</nb-card-header>
-    <nb-card-header *ngIf="!modoCreacion">ACTUALIZAR PERMISO - ROL</nb-card-header>
+    <nb-card-header *ngIf="modoCreacion" style="font-weight: bold; font-size: 18px;">CREAR PERMISO - ROL</nb-card-header>
+    <nb-card-header *ngIf="!modoCreacion" style="font-weight: bold; font-size: 18px;">ACTUALIZAR PERMISO - ROL</nb-card-header>
     <nb-card-body>
       <div class="row">
         <div class="col-3">
-          <label>Permiso</label>
+          <label>Permiso:</label>
         </div>
         <div class="col-9">
           <select
             class="form-control"
-            [(ngModel)]="elPermisoRol.permiso"
+            [(ngModel)]="elPermisoRol.permiso._id"
             required
           >
             <option value="">Seleccione un Permiso</option>
@@ -18,18 +18,18 @@
               {{ permiso.url + "  " + permiso.metodo }}
             </option>
           </select>
-          <p *ngIf="intentoEnvio && elPermisoRol.permiso ==='' ">Requerido</p>
+          <p *ngIf="intentoEnvio && elPermisoRol.permiso._id ==='' ">Requerido</p>
         </div>
       </div>
       <br />
       <div class="row">
         <div class="col-3">
-          <label>Rol</label>
+          <label>Rol:</label>
         </div>
         <div class="col-9">
           <select
             class="form-control"
-            [(ngModel)]="elPermisoRol.rol_id"
+            [(ngModel)]="elPermisoRol.rol._id"
             required
           >
             <option value="">Seleccione un Rol</option>
@@ -37,7 +37,7 @@
               {{ rol.nombre }}
             </option>
           </select>
-          <p *ngIf="intentoEnvio && elPermisoRol.rol_id ==='' ">Requerido</p>
+          <p *ngIf="intentoEnvio && elPermisoRol.rol._id ==='' ">Requerido</p>
         </div>
       </div>
 

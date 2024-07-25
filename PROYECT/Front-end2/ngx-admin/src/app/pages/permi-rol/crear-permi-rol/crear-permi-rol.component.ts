@@ -18,8 +18,16 @@ export class CrearPermiRolComponent implements OnInit {
   id_permiRol: string = "";
   intentoEnvio: boolean = false;
   elPermisoRol: PermisoRol = {
-    permiso: "",
-    rol_id: ""
+    permiso: {
+      _id:"",
+      metodo:"",
+      url:"",
+    },
+    rol: {
+      _id:"",
+      descripcion:"",
+      nombre:"",
+    },
   }
   elrol: Roles[]=[];
   elpermiso: Permiso[]=[];
@@ -62,7 +70,7 @@ export class CrearPermiRolComponent implements OnInit {
   agregar(): void {
     if (this.validarDatosCompletos()) {
       this.intentoEnvio = true;
-      this.miServicioPermisoRol.crear(this.elPermisoRol.rol_id,this.elPermisoRol.permiso,this.elPermisoRol).subscribe(data => {
+      this.miServicioPermisoRol.crear(this.elPermisoRol.rol._id,this.elPermisoRol.permiso._id,this.elPermisoRol).subscribe(data => {
         Swal.fire(
           'Creado',
           'El Permiso - Rol ha sido creado correctamente',
@@ -76,7 +84,7 @@ export class CrearPermiRolComponent implements OnInit {
   editar(): void {
     this.intentoEnvio = true;
     if (this.validarDatosCompletos()) {
-      this.miServicioPermisoRol.editar(this.elPermisoRol._id,this.elPermisoRol.rol_id,this.elPermisoRol.permiso,
+      this.miServicioPermisoRol.editar(this.elPermisoRol._id,this.elPermisoRol.rol._id,this.elPermisoRol.permiso._id,
       this.elPermisoRol).subscribe(data => {
         Swal.fire(
           'Actualizado',
@@ -90,8 +98,8 @@ export class CrearPermiRolComponent implements OnInit {
 
   validarDatosCompletos():boolean{
     this.intentoEnvio=true;
-    if(this.elPermisoRol.rol_id=="" ||
-      this.elPermisoRol.permiso==""){
+    if(this.elPermisoRol.rol._id=="" ||
+      this.elPermisoRol.permiso._id==""){
         return false;
     }else{
       return true;

@@ -31,7 +31,7 @@
       </div>
       <div class="row">
         <div class="col-3">
-          <label>Tipo Persona:</label>
+          <label>Tipo de Persona:</label>
         </div>
         <div class="col-9">
           {{ persona.tipo }}
@@ -39,7 +39,7 @@
       </div>
       <div class="row">
         <div class="col-3">
-          <label>Capacidad:</label>
+          <label>Capacidad Diversa:</label>
         </div>
         <div class="col-9">
           {{ capacidad.nombre }}
@@ -58,7 +58,7 @@
           <label>Consejos: </label>
         </div>
       </div>
-      <div class="row consejo">
+      <div class="row">
         <div class="container">
           <li class="subtitulo">Preparación Antes de Clase:</li>
           <br>
@@ -76,6 +76,7 @@
       <div class="row consejo">
         <div class="container">
           <li class="subtitulo">Durante de la clase:</li>
+          <br>
           <div class="row justify-content-center">
             <div class="col-md-4 mb-4" *ngFor="let consejo of consejos">
               <div class="card" *ngIf="laAsignacion.Nivel_Capacidad === consejo.Nivel_Capacidad && consejo.momento === 'Durante de la clase'">

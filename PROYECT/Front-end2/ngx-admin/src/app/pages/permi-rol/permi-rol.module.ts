@@ -6,6 +6,7 @@ import { CrearPermiRolComponent } from './crear-permi-rol/crear-permi-rol.compon
 import { ListarPermiRolComponent } from './listar-permi-rol/listar-permi-rol.component';
 import { NbCardModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     PermiRolRoutingModule,
     NbCardModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class PermiRolModule { }

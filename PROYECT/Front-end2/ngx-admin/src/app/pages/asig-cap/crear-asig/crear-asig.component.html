@@ -1,66 +1,66 @@
 <div class="col-lg-12">
     <nb-card>
-        <nb-card-header *ngIf="modoCreacion">ASIGNAR CAPACIDAD</nb-card-header>
-        <nb-card-header *ngIf="!modoCreacion">ACTUALIZAR ASIGNACIÓN DE CAPACIDAD</nb-card-header>
+        <nb-card-header *ngIf="modoCreacion" style="font-weight: bold; font-size: 18px;">ASIGNAR CAPACIDAD</nb-card-header>
+        <nb-card-header *ngIf="!modoCreacion" style="font-weight: bold; font-size: 18px;">ACTUALIZAR ASIGNACIÓN DE CAPACIDAD</nb-card-header>
         <nb-card-body>
             <div class="row">
                 <div class="col-3">
-                    <label>Persona</label>
+                    <label>Persona:</label>
                 </div>
                 <div class="col-9">
                     <select
                         class="form-control"
-                        [(ngModel)]="laAsignacion.persona"
+                        [(ngModel)]="laAsignacion.persona._id"
                         required
                     >
-                        <option [ngValue]="null">Seleccione una persona</option>
-                        <option *ngFor="let persona of lapersona" [ngValue]="persona">
+                        <option Value="">Seleccione una Persona</option>
+                        <option *ngFor="let persona of lapersona" [ngValue]="persona._id">
                             {{ persona.identificacion + " - " + persona.nombre }}
                         </option>
                     </select>
-                    <p *ngIf="intentoEnvio && !laAsignacion.persona">Requerido</p>
+                    <p *ngIf="intentoEnvio && laAsignacion.persona._id === '' ">Requerido</p>
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-3">
-                    <label>Capacidad</label>
+                    <label>Capacidad Diversa:</label>
                 </div>
                 <div class="col-9">
                     <select
                         class="form-control"
-                        [(ngModel)]="laAsignacion.capacidad"
+                        [(ngModel)]="laAsignacion.capacidad._id"
                         required
                     >
-                        <option [ngValue]="null">Seleccione una capacidad</option>
-                        <option *ngFor="let capacidad of lacapacidad" [ngValue]="capacidad">
+                        <option Value="">Seleccione una Capacidad Diversa</option>
+                        <option *ngFor="let capacidad of lacapacidad" [ngValue]="capacidad._id">
                             {{ capacidad.nombre }}
                         </option>
                     </select>
-                    <p *ngIf="intentoEnvio && !laAsignacion.capacidad">Requerido</p>
+                    <p *ngIf="intentoEnvio && laAsignacion.capacidad._id === '' ">Requerido</p>
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-3">
-                    <label>Grado de Capacidad</label>
+                    <label>Grado de la Capacidad:</label>
                 </div>
                 <div class="col-9">
                     <select class="form-control" [(ngModel)]="laAsignacion.Nivel_Capacidad">
-                        <option [ngValue]="null">Seleccione un Grado de Capacidad</option>
+                        <option [ngValue]="null">Seleccione un Grado de la Capacidad</option>
                         <option value="NULA">NULA</option>
                         <option value="LEVE">LEVE</option>
                         <option value="MODERADA">MODERADA</option>
                         <option value="GRAVE">GRAVE</option>
                         <option value="MUY GRAVE">MUY GRAVE</option>
                     </select>
-                    <p *ngIf="intentoEnvio && !laAsignacion.Nivel_Capacidad">Requerido</p>
+                    <p *ngIf="intentoEnvio && laAsignacion.Nivel_Capacidad === ''">Requerido</p>
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-3">
-                    <label>Fecha de Diagnóstico</label>
+                    <label>Fecha de Diagnóstico:</label>
                 </div>
                 <div class="col-9">
                     <input 
@@ -68,13 +68,13 @@
                         type="date" 
                         [(ngModel)]="laAsignacion.Fecha_Diagnostico"
                     >
-                    <p *ngIf="intentoEnvio && !laAsignacion.Fecha_Diagnostico">Requerido</p>
+                    <p *ngIf="intentoEnvio && laAsignacion.Fecha_Diagnostico === '' ">Requerido</p>
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-3">
-                    <label>Descripción</label>
+                    <label>Descripción:</label>
                 </div>
                 <div class="col-9">
                     <input 
@@ -82,7 +82,7 @@
                         type="text"
                         [(ngModel)]="laAsignacion.Descripcion"
                     >
-                    <p *ngIf="intentoEnvio && !laAsignacion.Descripcion">Requerido</p>
+                    <p *ngIf="intentoEnvio && laAsignacion.Descripcion === '' ">Requerido</p>
                 </div>
             </div>
             
