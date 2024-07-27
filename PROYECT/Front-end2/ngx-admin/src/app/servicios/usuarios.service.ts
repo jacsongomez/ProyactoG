@@ -34,4 +34,9 @@ export class UsuariosService {
   asigRol(id: string, idRol: string, elUsuario: Usuarios): Observable<Usuarios> {
     return this.http.put<Usuarios>(`${environment.url_gateway}/usuarios/${id}/rol/${idRol}`, elUsuario);
   }
+
+  validarCorreo(correo: string): boolean {
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    return emailPattern.test(correo);
+  }
 }
