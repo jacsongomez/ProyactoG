@@ -1,15 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import Swal from "sweetalert2";
-import { Usuarios } from "../../../modelos/usuarios.model";
-import { UsuariosService } from "../../../servicios/usuarios.service";
-import { Roles } from "../../../modelos/roles.model";
-import { RolesService } from "../../../servicios/roles.service";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { Usuarios } from '../../../modelos/usuarios.model';
+import { UsuariosService } from '../../../servicios/usuarios.service';
+import { Roles } from '../../../modelos/roles.model';
+import { RolesService } from '../../../servicios/roles.service';
 
 @Component({
-  selector: "ngx-crear-usu",
-  templateUrl: "./crear-usu.component.html",
-  styleUrls: ["./crear-usu.component.scss"],
+  selector: 'ngx-crear-usu',
+  templateUrl: './crear-usu.component.html',
+  styleUrls: ['./crear-usu.component.scss']
 })
 export class CrearUsuComponent implements OnInit {
   modoCreacion: boolean = true;
@@ -20,20 +20,18 @@ export class CrearUsuComponent implements OnInit {
     correo: "",
     contrasena: "",
     rol: {
-      _id: "",
-      descripcion: "",
-      nombre: "",
+      _id:"",
+      descripcion:"",
+      nombre:"",
     },
-  };
-  elrol: Roles[] = [];
+  }
+  elrol: Roles[]=[];
 
-  constructor(
-    public miServicioUsuarios: UsuariosService,
+  constructor(public miServicioUsuarios: UsuariosService, 
     private miServisioRol: RolesService,
-    private rutaActiva: ActivatedRoute,
-    private router: Router
-  ) {}
-
+    private rutaActiva: ActivatedRoute, 
+    private router: Router) { }
+  
   ngOnInit(): void {
     if (this.rutaActiva.snapshot.params.id_usuario) {
       this.modoCreacion = false;
@@ -46,12 +44,12 @@ export class CrearUsuComponent implements OnInit {
   }
 
   getUsuario(id: string) {
-    this.miServicioUsuarios.getUsuario(id).subscribe((data) => {
+    this.miServicioUsuarios.getUsuario(id).subscribe(data => {
       this.elUsuario = data;
     });
   }
 
-  getRol() {
+  getRol(){
     this.miServisioRol.listar().subscribe((data: Roles[]) => {
       this.elrol = data;
     });
@@ -60,21 +58,21 @@ export class CrearUsuComponent implements OnInit {
   agregar(): void {
     if (!this.miServicioUsuarios.validarCorreo(this.elUsuario.correo)) {
       Swal.fire({
-        icon: "error",
-        title: "Correo inválido",
-        text: "Por favor, ingrese un correo electrónico válido.",
+        icon: 'error',
+        title: 'Correo inválido',
+        text: 'Por favor, ingrese un correo electrónico válido. ejemplo@ejemplo.com'
       });
       return;
     }
 
     if (this.validarDatosCompletos()) {
       this.intentoEnvio = true;
-      console.log(this.elUsuario);
-      this.miServicioUsuarios.crear(this.elUsuario).subscribe((data) => {
+      console.log(this.elUsuario)
+      this.miServicioUsuarios.crear(this.elUsuario).subscribe(data => {
         Swal.fire(
-          "Creado",
-          "El usuario ha sido creado correctamente",
-          "success"
+          'Creado',
+          'El usuario ha sido creado correctamente',
+          'success'
         );
         this.router.navigate(["pages/usuarios/listarUsu"]);
       });
@@ -84,38 +82,32 @@ export class CrearUsuComponent implements OnInit {
   editar(): void {
     if (!this.miServicioUsuarios.validarCorreo(this.elUsuario.correo)) {
       Swal.fire({
-        icon: "error",
-        title: "Correo inválido",
-        text: "Por favor, ingrese un correo electrónico válido.",
+        icon: 'error',
+        title: 'Correo inválido',
+        text: 'Por favor, ingrese un correo electrónico válido. ejemplo@ejemplo.com'
       });
       return;
     }
-
+    
     this.intentoEnvio = true;
     if (this.validarDatosCompletos()) {
-      this.miServicioUsuarios
-        .editar(this.elUsuario._id, this.elUsuario)
-        .subscribe((data) => {
-          this.miServicioUsuarios
-            .asigRol(this.elUsuario._id, this.elUsuario.rol._id, this.elUsuario)
-            .subscribe((data) => {});
-          Swal.fire(
-            "Actualizado",
-            "El usuario ha sido actualizado correctamente",
-            "success"
-          );
-          this.router.navigate(["pages/usuarios/listarUsu"]);
-        });
+      this.miServicioUsuarios.editar(this.elUsuario._id, this.elUsuario).subscribe(data => {
+        this.miServicioUsuarios.asigRol(this.elUsuario._id, this.elUsuario.rol._id, this.elUsuario).subscribe(data => {});
+        Swal.fire(
+          'Actualizado',
+          'El usuario ha sido actualizado correctamente',
+          'success'
+        );
+        this.router.navigate(["pages/usuarios/listarUsu"]);
+      });
     }
   }
 
   validarDatosCompletos(): boolean {
     this.intentoEnvio = true;
-    if (
-      this.elUsuario.seudonimo === "" ||
-      this.elUsuario.correo === "" ||
-      this.elUsuario.contrasena === ""
-    ) {
+    if (this.elUsuario.seudonimo === "" ||
+        this.elUsuario.correo === "" ||
+        this.elUsuario.contrasena === "") {
       return false;
     } else {
       return true;
@@ -123,16 +115,10 @@ export class CrearUsuComponent implements OnInit {
   }
 
   cancelar() {
-    this.router.navigate(["pages/usuarios/listarUsu"]);
+    this.router.navigate(['pages/usuarios/listarUsu']);
   }
 
   getRolById(id: string): Roles {
-    return (
-      this.elrol.find((rol) => rol._id === id) || {
-        _id: "",
-        descripcion: "",
-        nombre: "",
-      }
-    );
+    return this.elrol.find(rol => rol._id === id) || { _id: '', descripcion: '', nombre: '' };
   }
 }

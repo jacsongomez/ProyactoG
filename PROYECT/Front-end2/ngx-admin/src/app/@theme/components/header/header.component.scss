@@ -105,3 +105,21 @@ $btn-focus-shadow-color: rgba(108, 117, 125, 0.5);
   width: 100px;
   height: 70px;
 }
+
+.help-icon {
+  font-size: 1.5rem;
+  color: #3d3d3e92;
+  text-decoration: none;
+  border: none;
+  background: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+
+  &:hover {
+    color: #000000; /* Color del ícono al pasar sobre él */
+  }
+}

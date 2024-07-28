@@ -11,10 +11,9 @@ const routes: Routes = [{
   component: PagesComponent,
   children: [
     {
-      path: 'seguridad',
-      loadChildren:() => import('./seguridad/seguridad.module')
-      .then(m=>m.SeguridadModule),
-
+      path: 'principal',
+      loadChildren:() => import('./principal/principal.module')
+      .then(m=>m.PrincipalModule),
     },
     {
       path: 'usuarios',
