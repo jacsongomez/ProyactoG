@@ -32,7 +32,7 @@ export class ListarCapComponent implements OnInit {
       error => {
         console.error('Error al cargar las Capacidades', error);
         this.loading = false;
-        Swal.fire('Error', 'No se pudieron cargar las Capacidades', 'error');
+        Swal.fire('Error', 'No se pudieron cargar las Capacidades. Porfavor inicia sesión', 'error');
       }
     );
   }

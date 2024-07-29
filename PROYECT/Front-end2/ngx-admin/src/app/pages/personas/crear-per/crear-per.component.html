@@ -5,7 +5,7 @@
         <nb-card-body>
             <div class="row">
                 <div class="col-3">
-                    <label>Identificacion:</label>
+                    <label>N° de Identificación:</label>
                 </div>
                 <div class="col-9">
                     <input class="form-control" type="text"[(ngModel)]="laPersona.identificacion">
@@ -28,7 +28,12 @@
                     <label>Grupo:</label>
                 </div>
                 <div class="col-9">
-                    <input class="form-control" type="text"[(ngModel)]="laPersona.grupo">
+                    <select class="form-control" [(ngModel)]="laPersona.grupo">
+                        <option value="">Seleccione un grupo</option>
+                        <option value="1">Grupo 1. Mañana</option>
+                        <option value="2">Grupo 2. Tarde</option>
+                        <option value="3">Grupo 3. Noche</option>
+                    </select>
                 </div>
             </div>
             <br>
@@ -65,7 +70,7 @@
                 <button *ngIf="modoCreacion" class="btn btn-danger btn-block" (click)="cancelar()">Cancelar</button>
                 <button *ngIf="!modoCreacion" class="btn btn-primary btn-block" (click)="editar()">Actualizar</button>
                 <button *ngIf="!modoCreacion" class="btn btn-danger btn-block" (click)="cancelar()">Cancelar</button>
-            </div>>
+            </div>
         </nb-card-body>
     </nb-card>
 </div>

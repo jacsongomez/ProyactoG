@@ -33,7 +33,7 @@
               <ng-container *ngFor="let permisoRolActual of filteredPermisoRol | paginate: { itemsPerPage: 8, currentPage: p }">
                 <tr>
                   <td class="table-cell">{{ permisoRolActual.rol.nombre }}</td>
-                  <td class="table-cell">{{ permisoRolActual.permiso.url + ' - ' + permisoRolActual.permiso.metodo }}</td>
+                  <td class="table-cell">{{ permisoRolActual.permiso.descripcion }}</td>
                   <td>
                     <div class="d-flex">
                       <button

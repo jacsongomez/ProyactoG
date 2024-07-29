@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ListarPermisoComponent implements OnInit {
   permisos : Permiso[];
-  nombresColumnas: string[] = ['Url','Metodo','Opciones'];
+  nombresColumnas: string[] = ['Url','Método','Descripción','Opciones'];
   filteredPermisos: Permiso[] = [];
   p: number = 1; // Página actual para paginación
   loading: boolean = false; // Estado de carga
@@ -32,7 +32,7 @@ export class ListarPermisoComponent implements OnInit {
       error => {
         console.error('Error al cargar los Permisos', error);
         this.loading = false;
-        Swal.fire('Error', 'No se pudieron cargar los Permisos', 'error');
+        Swal.fire('Error', 'No se pudieron cargar los Permisos. Porfavor inicia sesión', 'error');
       }
     );
   }

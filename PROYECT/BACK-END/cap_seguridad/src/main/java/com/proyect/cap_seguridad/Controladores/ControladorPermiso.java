@@ -37,6 +37,7 @@ public class ControladorPermiso {
         if(permisoActual!=null){
             permisoActual.setMetodo(infoPermiso.getMetodo());
             permisoActual.setUrl(infoPermiso.getUrl());
+            permisoActual.setDescripcion(infoPermiso.getDescripcion());
             return this.miRepositorioPermiso.save(permisoActual);
         }else{
             return null;

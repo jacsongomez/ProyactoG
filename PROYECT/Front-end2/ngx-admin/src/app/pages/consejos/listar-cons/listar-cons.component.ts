@@ -33,7 +33,7 @@ export class ListarConsComponent implements OnInit{
       error => {
         console.error('Error al cargar los Consejos', error);
         this.loading = false;
-        Swal.fire('Error', 'No se pudieron cargar los Consejos', 'error');
+        Swal.fire('Error', 'No se pudieron cargar los Consejos. Porfavor inicia sesión', 'error');
       }
     );
   }

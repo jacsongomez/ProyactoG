@@ -33,7 +33,7 @@ export class ListarAsigComponent implements OnInit {
       error => {
         console.error('Error al cargar las Asignaciones', error);
         this.loading = false;
-        Swal.fire('Error', 'No se pudieron cargar las Asignaciones', 'error');
+        Swal.fire('Error', 'No se pudieron cargar las Asignaciones. Porfavor inicia sesión', 'error');
       }
     );
   }

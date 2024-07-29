@@ -32,7 +32,7 @@ export class ListarProComponent implements OnInit{
       error => {
         console.error('Error al cargar los Programas', error);
         this.loading = false;
-        Swal.fire('Error', 'No se pudieron cargar los Programas', 'error');
+        Swal.fire('Error', 'No se pudieron cargar los Programas. Porfavor inicia sesión', 'error');
       }
     );
   }

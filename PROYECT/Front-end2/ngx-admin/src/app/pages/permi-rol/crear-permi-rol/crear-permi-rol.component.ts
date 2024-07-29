@@ -22,6 +22,7 @@ export class CrearPermiRolComponent implements OnInit {
       _id:"",
       metodo:"",
       url:"",
+      descripcion:"",
     },
     rol: {
       _id:"",

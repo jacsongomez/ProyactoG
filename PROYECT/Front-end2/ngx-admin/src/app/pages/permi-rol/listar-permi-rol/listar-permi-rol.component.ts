@@ -31,7 +31,7 @@ export class ListarPermiRolComponent implements OnInit{
       error => {
         console.error('Error al cargar los Permisos Roles', error);
         this.loading = false;
-        Swal.fire('Error', 'No se pudieron cargar los Permisos Roles', 'error');
+        Swal.fire('Error', 'No se pudieron cargar los Permisos Roles. Porfavor inicia sesión', 'error');
       }
     );
   }

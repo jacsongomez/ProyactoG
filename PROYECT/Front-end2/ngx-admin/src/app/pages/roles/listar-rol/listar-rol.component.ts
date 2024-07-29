@@ -32,7 +32,7 @@ export class ListarRolComponent implements OnInit{
       error => {
         console.error('Error al cargar los Roles', error);
         this.loading = false;
-        Swal.fire('Error', 'No se pudieron cargar los Roles', 'error');
+        Swal.fire('Error', 'No se pudieron cargar los Roles. Porfavor inicia sesión', 'error');
       }
     );
   }

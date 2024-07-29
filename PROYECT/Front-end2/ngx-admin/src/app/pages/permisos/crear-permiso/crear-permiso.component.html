@@ -15,7 +15,7 @@
       <br />
       <div class="row">
         <div class="col-3">
-          <label>Metodo:</label>
+          <label>Método:</label>
         </div>
         <div class="col-9">
           <select class="form-control" [(ngModel)]="elPermiso.metodo">
@@ -26,6 +26,16 @@
             <option value="DELETE">DELETE</option>
           </select>
           <p *ngIf="intentoEnvio && elPermiso.metodo === ''">Requerido</p>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-3">
+          <label>Descripción:</label>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text" [(ngModel)]="elPermiso.descripcion">
+            <p *ngIf="intentoEnvio && elPermiso.descripcion === ''">Requerido</p>
         </div>
       </div>
 

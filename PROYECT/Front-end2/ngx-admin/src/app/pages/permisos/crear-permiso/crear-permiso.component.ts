@@ -15,7 +15,8 @@ export class CrearPermisoComponent implements OnInit{
   intentoEnvio: boolean = false;
   elPermiso: Permiso = {
     url: "",
-    metodo: ""
+    metodo: "",
+    descripcion:""
   }
 
   constructor(private miServicioPermisos: PermisosService,
@@ -70,7 +71,8 @@ export class CrearPermisoComponent implements OnInit{
   validarDatosCompletos():boolean{
     this.intentoEnvio=true;
     if(this.elPermiso.url=="" ||
-      this.elPermiso.metodo==""){
+      this.elPermiso.metodo=="" ||
+      this.elPermiso.descripcion==""){
       return false;
     }else{
       return true;

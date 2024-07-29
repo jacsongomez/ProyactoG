@@ -32,7 +32,7 @@ export class ListarUsuComponent implements OnInit{
       error => {
         console.error('Error al cargar los Usuarios', error);
         this.loading = false;
-        Swal.fire('Error', 'No se pudieron cargar los Usuarios', 'error');
+        Swal.fire('Error', 'No se pudieron cargar los Usuarios. Porfavor inicia sesión', 'error');
       }
     );
   }

@@ -10,10 +10,12 @@ public class Permiso {
     private String _id;
     private String url;
     private String metodo;
+    private String descripcion;
 
     public Permiso(String url, String metodo) {
         this.url = url;
         this.metodo = metodo;
+        this.descripcion = descripcion;
     }
 
     public String get_id() {
@@ -34,5 +36,13 @@ public class Permiso {
 
     public void setMetodo(String metodo) {
         this.metodo = metodo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ListarPerComponent implements OnInit{
   personas : Persona[];
-  nombresColumnas: string[] = ['Identificaion','Nombres y apellidos','programa','grupo','tipo ','Opciones'];
+  nombresColumnas: string[] = ['N° de Identificación','Nombres y apellidos','programa','grupo','tipo ','Opciones'];
   filteredPersonas: Persona[] = [];
   p: number = 1; // Página actual para paginación
   loading: boolean = false; // Estado de carga
@@ -33,7 +33,7 @@ export class ListarPerComponent implements OnInit{
       error => {
         console.error('Error al cargar las Personas', error);
         this.loading = false;
-        Swal.fire('Error', 'No se pudieron cargar las Personas', 'error');
+        Swal.fire('Error', 'No se pudieron cargar las Personas. Porfavor inicia sesión', 'error');
       }
     );
   }

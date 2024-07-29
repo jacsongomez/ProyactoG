@@ -15,7 +15,7 @@
           >
             <option value="">Seleccione un Permiso</option>
             <option *ngFor="let permiso of elpermiso" [value]="permiso._id">
-              {{ permiso.url + "  " + permiso.metodo }}
+              {{ permiso.descripcion }}
             </option>
           </select>
           <p *ngIf="intentoEnvio && elPermisoRol.permiso._id ==='' ">Requerido</p>
