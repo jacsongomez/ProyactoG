@@ -37,8 +37,8 @@ export class LoginComponent implements OnInit{
     },
     error=>{
       Swal.fire({
-        title: 'Error Login',
-        text: error["error"]["message"],
+        title: 'Inicio de Sesión fallido',
+        text: 'Correo o contraseña incorrectos',
         icon: 'error',
         timer:5000
       });

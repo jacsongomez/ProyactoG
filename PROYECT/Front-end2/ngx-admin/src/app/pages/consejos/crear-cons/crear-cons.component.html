@@ -44,10 +44,10 @@
                     <label>Consejo:</label>
                 </div>
                 <div class="col-9">
-                    <input class="form-control" type="text"[(ngModel)]="elConsejo.consejo">
-                        <p *ngIf="intentoEnvio && elConsejo.consejo ==='' ">Requerido</p>
+                    <textarea class="form-control custom-textarea" [(ngModel)]="elConsejo.consejo"></textarea>
+                    <p *ngIf="intentoEnvio && elConsejo.consejo === ''">Requerido</p>
                 </div>
-            </div>
+            </div>            
             <br>
             <div class="row">
                 <div class="col-3">
